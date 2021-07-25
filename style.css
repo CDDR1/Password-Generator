@@ -1,0 +1,46 @@
+/* Common Styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* End of Common Styles */
+
+.section-1 {
+    width: 100%;
+    height: 100vh;
+}
+
+.main-heading {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.password-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    justify-content: center;
+}
+
+.password-result {
+    width: 500px;
+    height: 20px;
+    margin: 40px;
+    text-align: center;
+}
+
+.options-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    justify-content: space-between;
+}
+
+button.generate-password {
+    margin: 30px;
+    padding: 10px;
+}

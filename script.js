@@ -1,11 +1,11 @@
 // These arrays have the purpose of being used to generate the password
-const lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+const lowercase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-const caps = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+const caps = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ",", ".", "?", "<", ">", "/", "-", "_", "+", "=", "`", "~"];
+const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', ',', '.', '?', '<', '>', '/', '-', '_', '+', '=', '`', '~'];
 
 const generatePasswordBtn = document.querySelector('.generate-password');
 const passwordField = document.querySelector('.password-result');
@@ -22,13 +22,11 @@ const GetRandomElement = array => {
 }
 
 // Function that generates the password
-const GeneratePassword = (lowercase, caps, numbers, symbols) => {
-    // Ill use a fixed number of characters just for now...
-    const passwordLength = 10;
+const GeneratePassword = (length, array) => {
     const password = [];
 
-    for (let i = 0; i < passwordLength; i++) {
-        const character = GetRandomElement(lowercase);
+    for (let i = 0; i < length; i++) {
+        const character = GetRandomElement(array);
         password.push(character);
     }
 
@@ -36,9 +34,79 @@ const GeneratePassword = (lowercase, caps, numbers, symbols) => {
 }
 
 generatePasswordBtn.addEventListener('click', () => {
-//    if (document.querySelector('#caps:checked') !== null) {
+    const passwordLengthInput = document.querySelector('.password-length');
+    const passwordLength = passwordLengthInput.value;
+    let password;
 
-//    } 
-    const password = GeneratePassword(lowercase);
+    if (document.getElementById('caps').checked === true && 
+        document.getElementById('numbers').checked === false && 
+        document.getElementById('symbols').checked === false) 
+    {
+        const charsArray = lowercase.concat(caps);
+        
+        password = GeneratePassword(passwordLength, charsArray);
+    } 
+    else if (document.getElementById('caps').checked === false && 
+            document.getElementById('numbers').checked === true && 
+            document.getElementById('symbols').checked === false)
+    {
+        const charsArray = lowercase.concat(numbers);
+
+        password = GeneratePassword(passwordLength, charsArray);
+    }
+    else if (document.getElementById('caps').checked === false && 
+            document.getElementById('numbers').checked === false && 
+            document.getElementById('symbols').checked === true)
+    {
+        const charsArray = lowercase.concat(symbols);
+
+        password = GeneratePassword(passwordLength, charsArray);
+    }
+    else if (document.getElementById('caps').checked === true && 
+            document.getElementById('numbers').checked === true && 
+            document.getElementById('symbols').checked === false)
+    {
+        const charsArray = lowercase.concat(caps).concat(numbers);
+
+        password = GeneratePassword(passwordLength, charsArray);
+    }
+    else if (document.getElementById('caps').checked === true && 
+            document.getElementById('numbers').checked === true && 
+            document.getElementById('symbols').checked === true)
+    {
+        const charsArray = lowercase.concat(caps).concat(numbers).concat(symbols);
+
+        password = GeneratePassword(passwordLength, charsArray);
+    }
+    else if (document.getElementById('caps').checked === false && 
+            document.getElementById('numbers').checked === true && 
+            document.getElementById('symbols').checked === true)
+    {
+        const charsArray = lowercase.concat(numbers).concat(symbols);
+
+        password = GeneratePassword(passwordLength, charsArray);
+    }
+    else if (document.getElementById('caps').checked === true && 
+            document.getElementById('numbers').checked === false && 
+            document.getElementById('symbols').checked === true)
+    {
+        const charsArray = lowercase.concat(caps).concat(symbols);
+
+        password = GeneratePassword(passwordLength, charsArray);
+    }
+    else if (document.getElementById('caps').checked === true && 
+            document.getElementById('numbers').checked === true && 
+            document.getElementById('symbols').checked === false)
+    {
+        const charsArray = lowercase.concat(caps);
+
+        password = GeneratePassword(passwordLength, charsArray);
+    }
+    else {
+        password = GeneratePassword(passwordLength, lowercase);
+    }
+    
     passwordField.textContent = password;
+
+    // passwordLengthInput.value = "";
 });

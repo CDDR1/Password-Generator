@@ -40,15 +40,9 @@ generatePasswordBtn.addEventListener('click', () => {
     const chars = [];
     chars.push(...lowercase);
 
-    if (capsBox.checked) {
-        chars.push(...caps);
-    }
-    if (numbersBox.checked) {
-        chars.push(...numbers);
-    }
-    if (symbolsBox.checked) {
-        chars.push(...symbols);
-    }
+    if (capsBox.checked) chars.push(...caps);
+    if (numbersBox.checked) chars.push(...numbers);
+    if (symbolsBox.checked) chars.push(...symbols);
     
     const password = GeneratePassword(passwordLength, chars);
     

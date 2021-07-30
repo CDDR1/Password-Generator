@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 /* End of Common Styles */
 
@@ -31,6 +32,7 @@
     height: 20px;
     margin: 40px;
     text-align: center;
+    font-weight: 500;
 }
 
 .options-wrapper {
@@ -40,7 +42,11 @@
     justify-content: space-between;
 }
 
-button.generate-password {
-    margin: 30px;
-    padding: 10px;
+.button-wrapper {
+    margin-top: 20px;
+}
+
+button.generate-password, button.copy-password {
+    width: 150px;
+    height: 30px;
 }

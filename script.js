@@ -110,3 +110,13 @@ generatePasswordBtn.addEventListener('click', () => {
 
     // passwordLengthInput.value = "";
 });
+
+
+// Copy to clipboard button
+const copyBtn = document.querySelector('.copy-password');
+
+copyBtn.addEventListener('click', () => {
+    passwordField.focus();
+    passwordField.select();
+    document.execCommand("copy");
+});

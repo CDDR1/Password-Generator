@@ -15,9 +15,9 @@
                 Password Generator
             </h1>
             <div class="password-wrapper">
-                <div class="password-result">
-                    <!-- Here goes the generated password -->
-                </div>
+                <!-- Here goes the generated password -->
+                <textarea class="password-result">
+                </textarea>
                 <div class="options-wrapper">
                     <div class="option-1">
                         <input type="checkbox" id="caps" name="caps">
@@ -35,7 +35,10 @@
                         <input type="text" class="password-length" placeholder="Enter password length">
                     </div>
                 </div>
-                <button class="generate-password">Generate Password</button>
+                <div class="button-wrapper">
+                    <button class="generate-password">Generate Password</button>
+                    <button class="copy-password">Copy Password</button>
+                </div>
             </div>
         </section>
     </div>

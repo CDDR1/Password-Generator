@@ -18,7 +18,7 @@ const symbolsBox = document.getElementById('symbols');
 // Get random element from array
 const GetRandomElement = array => {
     const randomElement = array[Math.floor(Math.random() * array.length)];
-    return randomElement;
+    return randomElement; 
 }
 
 // Function that generates the password
@@ -38,16 +38,16 @@ generatePasswordBtn.addEventListener('click', () => {
     const passwordLengthInput = document.querySelector('.password-length');
     const passwordLength = passwordLengthInput.value;
     const chars = [];
-    chars.concat(lowercase);
+    chars.push(...lowercase);
 
-    if (capsBox.checked === true) {
-        chars.concat(caps);
+    if (capsBox.checked) {
+        chars.push(...caps);
     }
-    if (numbersBox.checked === true) {
-        chars.concat(numbers);
+    if (numbersBox.checked) {
+        chars.push(...numbers);
     }
-    if (symbolsBox.checked === true) {
-        chars.concat(symbols);
+    if (symbolsBox.checked) {
+        chars.push(...symbols);
     }
     
     const password = GeneratePassword(passwordLength, chars);
